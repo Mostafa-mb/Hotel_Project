@@ -1,0 +1,120 @@
+﻿@using Hotel_Project.Extention;
+@model BasketViewModel
+@{
+    ViewData["Title"] = "Basket";
+}
+
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <h5 class="col-6 fw-600 ">سبد خرید شما</h5>
+                <div class="col-6 d-flex justify-content-end">
+                    <a href="#" class="btn btn-success">ادامه ثبت سفارش</a>
+                </div>
+            </div>
+            @if (Model != null)
+            {
+                <div class="row basket">
+                    <table class="basket-table">
+                        <thead>
+                            <tr>
+                                <th class="col-2 py-3 ps-3">نام هتل</th>
+                                <th class="col-2">نام اتاق</th>
+                                <th class="col-3">تاریخ های رزرو</th>
+                                <th class="col-2 ps-3">قیمت پایه</th>
+                                <th class="col-2">قیمت کل</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.basketDetails)
+                            {
+                                <tr class="fs-6">
+                                    <td class="py-3 ps-3">
+                                        @item.HotelName
+                                    </td>
+                                    <td>@item.RoomName</td>
+                                    <td>
+                                        <div class="accordion accordion-flush" id="accordionFlushExample-2">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                            data-bs-target="#flush-collapseOne-@item.DetailId" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                        تاریخ ها
+                                                    </button>
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="fw-600 ps-3">@item.BasePrice.ToString("##,###")</td>
+                                    <td class="fw-600">@item.TotalPrice.ToString("##,###")</td>
+                                    <td> <a asp-controller="Store" asp-action="RemoveDetail" asp-route-id="@item.DetailId"><i class="bi bi-x-square text-danger pe-2 fs-7"></i></a></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                    @foreach (var item in Model.basketDetails)
+                    {
+                        <div class="col-lg-9 mx-5 py-4">
+                            <div id="flush-collapseOne-@item.DetailId" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample-@item.DetailId">
+                                <div class="accordion-body row">
+                                    @foreach (var subItem in item.reserveDates)
+                                    {
+                                        <div class="card col-lg-2 col-sm-4 text-center mt-2 py-2 mx-2">
+                                            <span>@subItem.ReserveTime.ToShamsiDate()</span>
+                                            <div class="d-inline">
+                                                <span>مبلغ: </span><span>@subItem.Price.ToString("##,###")</span>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row pb-3 justify-content-end">
+                    <div class="col-lg-6 col-6">
+                        <div class="col-12 order-sum">
+                            <table class="order-table w-100">
+                                <tbody>
+                                    <tr class="fs-6 fw-600 ">
+                                        <td class="py-3 "><a href="#"></a> مبلغ سبد خرید</td>
+                                        <td>@Model.OrderSum.ToString("##,###")<span>تومان</span></td>
+                                    </tr>
+                                    <tr class="fs-6 fw-600 ">
+                                        <td class="py-3"><a href="#"></a> مبلغ قابل پرداخت</td>
+                                        <td>@Model.OrderSum.ToString("##,###")<span>تومان </span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card py-5 mt-3">
+                    <h5 class="px-5">سبد خرید شما خالی میباشد لطفا برای ادامه خرید به فروشگاه مراجعه کنید</h5>
+                </div>
+            }
+
+            <div class="row pt-3">
+                <div class="col-6 d-flex justify-content-start">
+                    <a href="#" class="btn btn-secondary"> بازگشت به صفحه اصلی</a>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <a asp-controller="Store" asp-action="UserCheckout" class="btn btn-success">پرداخت سبد خرید </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+

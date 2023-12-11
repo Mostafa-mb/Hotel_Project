@@ -1,0 +1,45 @@
+﻿
+@model List<FisrtBaner>
+@{
+    ViewData["Title"] = "MiniBaners";
+}
+
+<div class="mx-3">
+    <h2 class="py-3">لیست بنرها</h2>
+    <div class="row">
+        <div class="col-12 pb-3">
+            <a asp-action="CreateBaner" class="btn btn-outline-primary">ایجاد بنر </a>
+        </div>
+        <div class="col-12">
+            <div class="admin-table ">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th>تصویر</th>
+                            <th>عنوان</th>
+                            <th>متن دکمه</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td class="col-4">
+                                    <img class="img-thumbnail baner-img" src="/asset/img/@(item.ImageName).jpg" alt="">
+                                </td>
+                                <td>@item.BanerTitle</td>
+                                <td>@item.BanerButton</td>
+                                <td>
+                                    <a asp-controller="MiniBaner" asp-action="EditBaner" asp-route-Id="@item.Id" class="btn btn-sm btn-outline-warning">ویرایش</a>
+                                    <a asp-controller="MiniBaner" asp-action="RemoveBaner" asp-route-Id="@item.Id" class="btn btn-sm btn-outline-danger ms-2">حذف</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

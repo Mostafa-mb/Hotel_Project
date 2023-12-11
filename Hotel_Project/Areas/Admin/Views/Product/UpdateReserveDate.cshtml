@@ -1,0 +1,51 @@
+﻿@model UpdateReserveDateVm
+@{
+    ViewData["Title"] = "UpdateReserveDate";
+}
+
+<div class="container">
+    <h2 class="py-3"> ویرایش تاریخ</h2>
+    <form asp-action="UpdateReserveDate" method="post">
+        <input asp-for="Id" type="hidden" />
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="ReserveTime" class="form-label"></label>
+                <input disabled="disabled" asp-for="ReserveTime" class="form-control text-start">
+                <span asp-validation-for="ReserveTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control text-start">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Count" class="form-label"></label>
+                <input asp-for="Count" class="form-control text-start">
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label class="form-label" asp-for="IsReserve"></label>
+                <div class="col-md-10">
+                    <div class="radio-single">
+                        <label>
+                            @Html.RadioButtonFor(m => m.IsReserve, "true")
+                            <span class="badge badge-pill bg-danger">ظرفیت تکمیل</span>
+                        </label>
+                    </div>
+                    <div class="radio-single">
+                        <label>
+                            @Html.RadioButtonFor(m => m.IsReserve, "false")
+                            <span class="badge badge-pill bg-success">آماده رزرو</span>
+                        </label>
+                    </div>
+                </div>
+                <span asp-validation-for="IsReserve" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-warning"> ویرایش </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

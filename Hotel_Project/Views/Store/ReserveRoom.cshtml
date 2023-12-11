@@ -1,0 +1,135 @@
+﻿@using Hotel_Project.Extention;
+@model ShowSingleRoomVm
+@{
+    ViewData["Title"] = "RserveRoom";
+}
+
+<!-- Product Page -->
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row hotel-reservation">
+                <div class="row pb-5 pt-3 hotel-brand">
+                    <div class="row col-lg-6">
+                        <h4 class="col-auto fw-600">@Model.Title (@Model.BedCount تخت)</h4>
+                        <div class="d-inline col-auto">
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star checked"></span>
+                            <span class="text-warning px-2">( 4 ستاره )</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 row justify-content-lg-end reserve-btns">
+                        <div class="col-auto">
+                            <a href="#" class="btn btn-outline-secondary rounded-5 ps-3 pt-2">
+                                افزودن به علاقه مندی ها
+                                <i class="bi bi-heart px-2 fs-5"></i>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a onclick="formSubmission()" class="btn btn-danger rounded-5 px-4">
+                                رزرو اتاق <i class="bi bi-cart px-2 fs-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 Room-Image">
+                    <img src="/asset/img/RoomHotel/@Model.ImageName" class="d-block w-100" alt="..." />
+                </div>
+
+                <div class="col-lg-7">
+
+                    <div class="row w-100 hotel-description">
+                        <h5 class="fw-600">توضیحات</h5>
+                        <p>
+                            @Model.Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row room-reserve">
+                <div class="room-title row position-relative">
+                    <h5 class="ps-4 fw-600 col-6">مشخصات اتاق</h5>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-lg-8 mx-auto row">
+                        <div class="col-6">
+                            <span class="fw-600">ویژگی ها</span> :
+                            @if (Model.advantageRooms.Any())
+                            {
+                                @foreach (var item in Model.advantageRooms.SkipLast(1))
+                                {
+                                    <span>@item.Name - </span>
+                                }
+                                <span>@Model.advantageRooms.Last().Name </span>
+                            }
+                        </div>
+                        <div class="col-6"><span class="fw-600">هزینه پایه</span> : @Model.Price.ToString("##,###")</div>
+                        <div class="col-6 pt-3"><span class="fw-600">تعداد تخت</span> : @Model.BedCount</div>
+                        <div class="col-6 pt-3">
+                            <span class="fw-600">ظرفیت</span> :
+                            <span class="pe-5 col-6 text-end text-secondary">
+                                <i class="bi bi-person-check-fill fs-5 px-2"></i>
+                                <span class="fw-600">@Model.Capacity نفر </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row room-reserve">
+                <div class="room-title row position-relative">
+                    <h5 class="ps-4 fw-600 col-6">تاریخ رزرو در دسترس</h5>
+                </div>
+                <form id="OrderForm" method="post" asp-action="CreateOrder">
+                    <div class="row pt-3 reserve-date px-5">
+
+                        <input name="RoomId" type="hidden" value="@Model.Id" />
+                        @if (Model.reserveDates.Any())
+                        {
+                            foreach (var item in Model.reserveDates)
+                            {
+                                <div class="col-xl-3 col-lg-4 col-md-6 my-3">
+                                    <div class="card p-3">
+                                        <div class="form-check text-center justify-content-center d-flex">
+                                            <input name="Dates" class="form-check-input me-2" type="checkbox" value="@item.Id">
+                                            <label class="form-check-label"> انتخاب تاریخ </label>
+                                        </div>
+                                        <div class="row">
+                                            <span class="fw-600 col-6">تاریخ رزرو </span> <span class="col-6">@PersianDate.ToShamsiDate(item.ReserveTime)</span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="fw-600 col-6">مبلغ </span> <span class="col-6">@item.Price.ToString("##,###") تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="col-xl-3 col-lg-4 col-md-6 my-3">
+                                <div class="card">
+                                    <div class="row">
+                                        <span class="fw-600 col-6">تاریخ رزرو </span> <span class="col-6">تاریخی برای رزرو وجود ندارد</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- End Product Page -->
+
+<script>
+    function formSubmission() {
+        let result = document.getElementById("OrderForm");
+        result.submit();
+    }
+</script>
+

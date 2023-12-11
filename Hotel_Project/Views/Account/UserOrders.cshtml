@@ -1,0 +1,61 @@
+﻿@model ICollection<UserOrdersViewModel>
+@{
+    ViewData["Title"] = "UserOrders";
+}
+
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 py-3">
+                    <div class="mx-1 user-account">
+                        <ul>
+                            <li><a asp-action="UserDashboard"><span class="bi bi-border-outer"><span class="px-3">داشبورد</span></span></a></li>
+                            <li class="user-active-link"><a asp-action="UserOrders"><span class="bi bi-bag-check"><span class="px-3">سفارشات</span></span></a></li>
+                            <li><a href=""><span class="bi bi-bag-heart"><span class="px-3">مورد علاقه ها</span></span></a></li>
+                            <li><a href=""><span class="bi bi-geo-alt"><span class="px-3">آدرس ها</span></span></a></li>
+                            <li><a href=""><span class="bi bi-arrow-return-left"><span class="px-3">خروج</span></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-9 py-3">
+                    <div class="user-dashboard">
+                        <p class="fw-600 fs-7 pb-3">سفارش,های شما</p>
+                        @if (Model.Any())
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <div class="dash-section row ">
+
+                                    <div class="d-flex align-items-center order-show col-lg-4 col-md-4">
+                                        <a href="#"><span class="ps-lg-3">نام هتل :</span></a>
+                                        <span class="ps-3 fw-600">@item.HotelName</span>
+                                    </div>
+                                    <div class="d-flex align-items-center order-show col-lg-4 col-md-4">
+                                        <a href="#"><span class="ps-lg-3">مبلغ سفارش :</span></a>
+                                        <span class="ps-3 fw-600">@item.OrderSum.ToString("##,###")</span>
+                                    </div>
+                                    <div class="d-flex align-items-center col-lg-4 col-md-4">
+                                        <a href="#"><span class="ps-lg-3">مشاهده سفارش</span></a>
+                                        <a href="#"> <i class="bi bi-cart-fill fs-2"></i></a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="dash-section row ">
+
+                                <div class="d-flex align-items-center col-lg-4 col-md-4">
+                                    <a href="#"><span class="ps-lg-3">در حال حاضر سفارشی ثبت نکرده اید</span></a>
+                                    <a asp-controller="Store" asp-action="Shop"> <i class="bi bi-cart-fill fs-2"></i></a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

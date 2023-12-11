@@ -1,0 +1,26 @@
+﻿@model CrudForHotelRuleVm
+@{
+    ViewData["Title"] = "InsertRuleToHotel";
+    int id = ViewBag.HotelId;
+}
+
+<div class="container">
+    <h2 class="py-3"> افزودن قانون به هتل</h2>
+    <form asp-action="InsertRuleToHotel" method="post">
+        <input asp-for="Id" type="hidden" value="@id" />
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea rows="4" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success"> افزودن قانون </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+

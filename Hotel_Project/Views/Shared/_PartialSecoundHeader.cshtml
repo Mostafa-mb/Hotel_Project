@@ -1,0 +1,72 @@
+﻿<!-- Header Section -->
+<header>
+    <div class="header-section site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mx-auto mt-lg-0 fs-8">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Store" asp-action="Shop">هتل ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">تور مسافرتی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">بلیط مسافرتی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">پشتیبانی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="AdminDashboard">ادمین</a>
+                        </li>
+                    </ul>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="row">
+                            <div class="dropdown col-lg-5 col-md-5 col-sm-5 account-sm">
+                                <button class="btn btn-danger rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    حساب کاربری
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="UserDashboard">داشبورد</a></li>
+                                    <li><a class="dropdown-item" href="#"> سفارشات </a></li>
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="logout"> خروج </a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-5 ms-3">
+                                <a asp-controller="Store" asp-action="UserBasket" class="btn btn-danger rounded-pill">
+                                سبد خرید <i class="bi bi-basket ps-2 "></i>
+                            </a>
+                            </div>
+                           
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <a asp-controller="Account" asp-action="Register" class="btn btn-danger rounded-pill"> ورود / ثبت نام </a>
+                            <a asp-controller="Store" asp-action="UserBasket" class="btn btn-danger rounded-pill ms-3">
+                            سبد خرید <i class="bi bi-basket ps-2 "></i>
+                        </a>
+                        </div>
+
+                        
+                    }
+
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- End Header -->

@@ -1,0 +1,64 @@
+﻿
+@model ShowAllReserveDateVm
+@{
+    ViewData["Title"] = "ShowAllReserveDates";
+}
+
+<h2 class="py-3">لیست رزرو </h2>
+<div class="row">
+    <div class="col-12 pb-3">
+        <a asp-action="InsertReserveDateToRoom" asp-route-id="@Model.Id" class="btn btn-outline-primary"> افزودن تاریخ رزرو</a>
+    </div>
+    <div class="col-12">
+        <div class="admin-table ">
+            <table class="table">
+                <thead>
+                    <tr class="table-secondary">
+                        <th>تاریخ</th>
+                        <th>تعداد</th>
+                        <th>قیمت</th>
+                        <th>وضعیت</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.reserveDates.Any())
+                    {
+                        @foreach (var item in Model.reserveDates)
+                        {
+                            <tr>
+                                <td>@PersianDate.ToShamsiDate(item.ReserveTime)</td>
+                                <td>@item.Count</td>
+                                <td>@item.Price.ToString("##,###")</td>
+                                <td>
+                                    @if (item.IsReserve)
+                                    {
+                                        <button class="btn btn-sm btn-danger">ظرفیت تکمیل</button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-sm btn-success">آماده رزرو</button>
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-controller="Product" asp-action="UpdateReserveDate" asp-route-Id="@item.Id" class="btn btn-sm btn-outline-warning">ویرایش</a>
+                                    <a asp-controller="Product" asp-action="DeleteReserveDate" asp-route-Id="@item.Id" class="btn btn-sm btn-outline-danger ms-2">حذف</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="col-4">
+                                در حال حاضر تاریخی برای رزرو موجود نمیباشد
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,424 @@
+﻿<!-- Baner-section -->
+@model List<FisrtBaner>
+
+<div class="container">
+    <div class="row baner-section  align-items-center justify-content-center">
+        @foreach(var item in Model)
+        {
+            <div class="col-md-12 col-lg-6 position-relative baner">
+                <div class="px-5 tiny-baner">
+                    <div class="img-section rounded-4">
+                        <img src="asset/img/@(item.ImageName).jpg" alt="right-baner" />
+                    </div>
+                </div>
+
+                <div class="position-absolute text-baner text-center">
+                    <p class="text-dark fs-4 fw-600 baner-title">
+
+                        @item.BanerTitle
+                    </p>
+                    <button class="btn w-75 btn-danger"> @item.BanerButton </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!--End Baner-section -->
+<!-- info Section -->
+
+<div class="info-section">
+    <div class="container bg-image bg-svg-image">
+        <div class="row align-items-center">
+            <div class="col-lg-6 fw-600">
+                <div class="text-title pb-3 fs-8 text-dark">درباره ما</div>
+                <h3 class="fw-700 pb-4">
+                    چگونه سال ها بهترین خدمات رسانی را داشتیم
+                </h3>
+                <p class="fs-7">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                    استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                    در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
+                    نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
+                    کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
+                    جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
+                    طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
+                    فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری
+                    موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد
+                    نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
+                    دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img src="asset/img/Tower-img.png" alt="tower-image" />
+            </div>
+        </div>
+    </div>
+</div>
+<!--End info Section -->
+<!-- Hotel Section -->
+
+<div class="page-section">
+    <div class="container">
+        <div class="text-center">
+            <div class="text-title pb-3">پیشنهاد ما</div>
+            <h3 class="fw-700 mb-5">بهترین هتل ها برای اسکان شما</h3>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-4 col-md-8 hotel-md">
+                <div class="card-hotel rounded-4">
+                    <div class="hotel-header">
+                        <a href="reservation.html">
+                            <img src="asset/img/Hotel/Parsian-Khazar.jpg" alt="hotel-image" />
+                        </a>
+                    </div>
+                    <div class="body px-4 py-3">
+                        <div class="d-inline ">
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                        </div>
+                        <p class="pt-3 hotel-title">
+                            <a href="reservation.html" class="fs-5 fw-600 p-0">
+                                هتل بین المللی گلستان
+                            </a>
+                        </p>
+                        <p class="text-gray">گلستان ، گرگان</p>
+                        <hr />
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="col-4">
+                                <button class="btn btn-hotel btn-outline-info fw-600">
+                                    5 / 5
+                                </button>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="fw-600">بسیار عالی</p>
+                            </div>
+                            <div class="col-3 text-gray">
+                                <p>(5 نظر)</p>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="col-4">قیمت : شروع</div>
+                            <div class="col-7">
+                                <p class="fw-600">600،000 ریال</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 hotel-md">
+                <div class="card-hotel rounded-4">
+                    <div class="hotel-header">
+                        <a href="reservation.html">
+                            <img src="asset/img/Hotel/Almas.jpg" alt="hotel-image" />
+                        </a>
+                    </div>
+                    <div class="body px-4 py-3">
+                        <div class="d-inline ">
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                        </div>
+                        <p class="pt-3 hotel-title">
+                            <a href="reservation.html" class=" fs-5 fw-600 p-0">
+                                هتل بین المللی گلستان
+                            </a>
+                        </p>
+                        <p class="text-gray">گلستان ، گرگان</p>
+                        <hr />
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="col-4">
+                                <button class="btn btn-hotel btn-outline-info fw-600">
+                                    5 / 5
+                                </button>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="fw-600">بسیار عالی</p>
+                            </div>
+                            <div class="col-3 text-gray">
+                                <p>(5 نظر)</p>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="col-4">قیمت : شروع</div>
+                            <div class="col-7">
+                                <p class="fw-600">600،000 ریال</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 hotel-md">
+                <div class="card-hotel rounded-4">
+                    <div class="hotel-header">
+                        <a href="reservation.html">
+                            <img src="asset/img/Hotel/homa-hotel-tehran-main.jpg" alt="hotel-image" />
+                        </a>
+                    </div>
+                    <div class="body px-4 py-3">
+                        <div class="d-inline ">
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                            <span class="bi bi-star-fill checked"></span>
+                        </div>
+                        <p class="pt-3 hotel-title">
+                            <a href="reservation.html" class=" fs-5 fw-600 p-0">
+                                هتل بین المللی گلستان
+                            </a>
+                        </p>
+                        <p class="text-gray">گلستان ، گرگان</p>
+                        <hr />
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="col-4">
+                                <button class="btn btn-hotel btn-outline-info fw-600">
+                                    5 / 5
+                                </button>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="fw-600">بسیار عالی</p>
+                            </div>
+                            <div class="col-3 text-gray">
+                                <p>(5 نظر)</p>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="col-4">قیمت : شروع</div>
+                            <div class="col-7">
+                                <p class="fw-600">600،000 ریال</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Hotel Section -->
+<!-- Advantage Section -->
+<div class="Advantage-section">
+    <div class="container">
+        <div class="text-center">
+            <div class="text-title pb-3">مزیت های رقابتی</div>
+            <h3 class="fw-700 pb-5">بهترین هارو در کنار ما تجربه کنید</h3>
+        </div>
+        <div class="row justify-content-center align-items-center pt-4">
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-airplane-fill fs-3 icon-rounded text-primary advantage-icon "></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-archive fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-arrow-left-right fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-bag-heart fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-airplane-fill fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-archive fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-arrow-left-right fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-center pb-5">
+                    <i class="bg-white bi bi-bag-heart fs-3 icon-rounded text-primary advantage-icon"></i>
+                    <p class="pt-5 fs-4 fw-600 text-gray">بهترین پرواز</p>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Advantage Section -->
+<!-- Blog Section -->
+
+<div class="page-section">
+    <div class="row blog-section">
+        <div class="col-md-12 col-lg-6">
+            <div class="text-center">
+                <div class="text-title pb-3">اخبار</div>
+                <h3 class="fw-700 mb-5">آخرین خبرهای مجموعه</h3>
+                <div class="blog-news mb-4">
+                    <div class="blog-image">
+                        <img src="asset/img/Hotel/Espinas.jpg" alt="" />
+                    </div>
+                    <div class="text-start px-4 py-3">
+                        <a href="#">
+                            <p class="fs-4 fw-700">سر فصل خبر</p>
+                        </a>
+                        <p class="fw-600">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                            با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
+                            مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                            تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای
+                            کاربردی می باشد،
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="row">
+                <div class="col-6">
+                    <div class="text-center">
+                        <div class="mini-blog-news">
+                            <div class="blog-image">
+                                <img src="asset/img/Hotel/ghasr-talaee-mashhad.jpg" alt="" />
+                            </div>
+                            <div class="text-start px-4 py-3">
+                                <a href="#">
+                                    <p class="fs-4 fw-600">سر فصل خبر</p>
+                                </a>
+                                <p class="fw-500">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                    و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
+                                    روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+                                    بهبود ابزارهای کاربردی می باشد، لورم ایپسوم متن ساختگی با
+                                    تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                    گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                    سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
+                                    نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                    صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
+                                    متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
+                                    و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با
+                                    هدف بهبود ابزارهای کاربردی می باشد،
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center">
+                        <div class="mini-blog-news">
+                            <div class="blog-image">
+                                <img src="asset/img/Hotel/hotel.jpg" alt="" />
+                            </div>
+                            <div class="text-start px-4 py-3">
+                                <a href="#">
+                                    <p class="fs-4 fw-600">سر فصل خبر</p>
+                                </a>
+                                <p class="fw-500">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                    و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
+                                    روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+                                    بهبود ابزارهای کاربردی می باشد،
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center">
+                        <div class="mini-blog-news">
+                            <div class="blog-image">
+                                <img src="asset/img/Hotel/Parsian-Khazar.jpg" alt="" />
+                            </div>
+                            <div class="text-start px-4 py-3">
+                                <a href="#">
+                                    <p class="fs-4 fw-600">سر فصل خبر</p>
+                                </a>
+                                <p class="fw-500">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                    و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
+                                    روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+                                    بهبود ابزارهای کاربردی می باشد،
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center">
+                        <div class="mini-blog-news">
+                            <div class="blog-image">
+                                <img src="asset/img/Hotel/tehran-ibis.webp" alt="" />
+                            </div>
+                            <div class="text-start px-4 py-3">
+                                <a href="#">
+                                    <p class="fs-4 fw-600">سر فصل خبر</p>
+                                </a>
+                                <p class="fw-500">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                    و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
+                                    روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+                                    بهبود ابزارهای کاربردی می باشد،
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Blog Section -->

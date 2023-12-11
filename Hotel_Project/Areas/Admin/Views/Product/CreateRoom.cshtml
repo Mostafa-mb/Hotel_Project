@@ -1,0 +1,55 @@
+﻿@model CreateRoomViewModel
+@{
+    ViewData["Title"] = "CreateRoom";
+}
+
+<div class="container">
+    <h2 class="py-3"> ایجاد اتاق</h2>
+    <form asp-action="CreateRoom" method="post" enctype="multipart/form-data">
+        <input asp-for="HotelId" type="hidden" />
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="File" class="form-label"></label>
+                <input asp-for="File" class="form-control">
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control text-start">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="BedCount" class="form-label"></label>
+                <input asp-for="BedCount" class="form-control text-start">
+                <span asp-validation-for="BedCount" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Capacity" class="form-label"></label>
+                <input asp-for="Capacity" class="form-control text-start">
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Count" class="form-label"></label>
+                <input asp-for="Count" class="form-control text-start">
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="RoomPrice" class="form-label"></label>
+                <input asp-for="RoomPrice" class="form-control text-start">
+                <span asp-validation-for="RoomPrice" class="text-danger"></span>
+
+
+            </div>
+            <div class="mb-3 col-12">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea rows="4" asp-for="Description" class="form-control text-start"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success"> ساخت اتاق </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

@@ -1,0 +1,76 @@
+@media (max-width: 992.99px) {
+  .fs-8 {
+    font-size: 18px;
+  }
+
+  .header-title h3 {
+    font-size: 22px;
+  }
+
+  .tiny-baner {
+    margin: 20px 0;
+  }
+
+  .hotel-md {
+    margin-bottom: 30px;
+  }
+
+  .card-hotel {
+    max-width: 800px;
+  }
+
+  .footer-col {
+    padding-top: 25px;
+  }
+
+  .footer-news {
+    padding-top: 15px;
+  }
+
+  .select {
+    margin-bottom: 10px;
+    min-width: 100%;
+  }
+
+  .mini-select {
+    min-width: 100%;
+  }
+
+  .store-col {
+    display: none;
+  }
+  .order-show {
+    border-left: none;
+  }
+  .reserve-btns{
+    padding-top: 20px;
+  }
+
+  .reserve-btns a:first-child {
+    margin-bottom: 10px; 
+  }
+  .reserve-btn{
+    padding-right: 50px;
+  }
+  .room-price{
+    padding: 10px ;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+@media (max-width: 576.98px) {
+    .account-sm {
+        margin-bottom:10px; 
+    }
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}

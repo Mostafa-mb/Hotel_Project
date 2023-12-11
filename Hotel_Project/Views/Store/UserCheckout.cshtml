@@ -1,0 +1,110 @@
+﻿@using Hotel_Project.Extention;
+@model CheckoutViewModel
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <h5 class="col-6 fw-600 ">فاکتور خرید شما</h5>
+            </div>
+            <div class="mb-4">
+                @foreach (var item in Model.basketDetails)
+                {
+                    <div class="row border rounded-4 py-3 px-3 mt-3">
+                        <div class="card py-2">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-4">
+                                    <span> نام هتل</span><span>: @item.HotelName</span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4">
+                                    <span> نام اتاق</span><span>: @item.RoomName</span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4">
+                                    <span> قیمت پایه</span><span>: @item.BasePrice.ToString("##,###")</span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4">
+                                    <span> قیمت کل</span><span>: @item.TotalPrice.ToString("##,###")</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @foreach (var date in item.reserveDates)
+                            {
+                                <div class="col-lg-3 col-sm-6 py-2 px-3">
+                                    <div class="row border rounded-3 py-2">
+                                        <div class="col-6">@date.ReserveTime.ToShamsiDate()</div>
+                                        <div class="col-6">قیمت : @date.Price.ToString("##,###")</div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <hr>
+            <div class="row pb-3 pt-2">
+                <form id="CheckoutForm" asp-action="Payment" method="post">
+                    <div class="col-lg-6 col-6 row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label">نام</label>
+                                <input asp-for="Name" class="form-control text-start" placeholder="مثال : علی">
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label">نام خانوادگی</label>
+                                <input asp-for="LastName" class="form-control text-start" placeholder="مثال : خاکباز">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label">کد ملی</label>
+                                <input asp-for="PassCode" class="form-control text-start" placeholder="مثال : 2568896145">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label">نفرات</label>
+                                <input asp-for="Count" class="form-control text-start" placeholder="مثال : 3">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-lg-6 col-6 d-flex align-items-end">
+                    <div class="col-12 order-sum">
+                        <table class="order-table w-100">
+                            <tbody>
+                                <tr class="fs-6 fw-600 ">
+                                    <td class="py-3"><a href="#"></a> مبلغ قابل پرداخت</td>
+                                    <td>@Model.OrderSum.ToString("##,###")<span>تومان </span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6 d-flex justify-content-start">
+                    <a href="#" class="btn btn-secondary"> بازگشت به صفحه اصلی</a>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <a onclick="formSubmission()" class="btn btn-success">پرداخت سفارش </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function formSubmission() {
+        let result = document.getElementById("CheckoutForm");
+        result.submit();
+    }
+</script>

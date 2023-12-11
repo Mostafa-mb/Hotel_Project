@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<HotelRule>
+
+@{
+    ViewData["Title"] = "ShowAllRules";
+    int id = ViewBag.HotelId;
+}
+
+<div class="my-5">
+    <div>
+        <a class="btn btn-outline-primary " asp-action="InsertRuleToHotel" asp-route-id="@id">افزودن قانون</a>
+    </div>
+    <div class="mt-4">
+        <ul>
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <li class="mb-3">
+                        <p class="fw-600 fs-6">@item.Description</p>
+                        <div class="row text-start w-25">
+                            <a asp-action="EditHotelRule" asp-route-id="@item.Id" class="btn btn-outline-warning col me-2">ویرایش قانون</a>
+                            <a asp-action="RemoveHotelRule" asp-route-id="@item.Id" class="btn btn-outline-danger col">حذف قانون</a>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+
+                <li class="mb-3">
+                    <p class="fw-600 fs-6">در حال حاضر قانونی برای هتل یافت نشد لطفا از افزودن قانون استفاده کنید</p>
+
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>
+

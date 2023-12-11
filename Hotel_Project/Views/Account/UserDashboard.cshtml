@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewData["Title"] = "UserDashboard";
+}
+
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 py-3">
+                    <div class="mx-1 user-account">
+                        <ul>
+                            <li class="user-active-link"><a asp-action="UserDashboard"><span class="bi bi-border-outer"><span class="px-3">داشبورد</span></span></a></li>
+                            <li><a asp-action="UserOrders"><span class="bi bi-bag-check"><span class="px-3">سفارشات</span></span></a></li>
+                            <li><a href=""><span class="bi bi-bag-heart"><span class="px-3">مورد علاقه ها</span></span></a></li>
+                            <li><a href=""><span class="bi bi-geo-alt"><span class="px-3">آدرس ها</span></span></a></li>
+                            <li><a href=""><span class="bi bi-arrow-return-left"><span class="px-3">خروج</span></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-9 py-3">
+                    <div class="user-dashboard">
+                        <div class="dash-section row ">
+                            <p class="fw-600 fs-7 pb-3">سفارش,های شما</p>
+                            <div class="d-flex align-items-center order-show col-lg-4 col-md-4">
+                                <i class="bi bi-cart-fill fs-2"></i>
+                                <a href="#"><span class="ps-lg-3">سفارش های جاری</span></a>
+                                <span class="ps-3 fw-600">(0)</span>
+                            </div>
+                            <div class="d-flex align-items-center order-show col-lg-4 col-md-4">
+                                <i class="bi bi-cart-check-fill fs-2"></i>
+                                <a href="#"><span class="ps-lg-3">سفارش های تکمیل شده</span></a>
+                                <span class="ps-3 fw-600">(0)</span>
+                            </div>
+                            <div class="d-flex align-items-center col-lg-4 col-md-4">
+                                <i class="bi bi-cart-x-fill fs-2"></i>
+                                <a href="#"><span class="ps-lg-3">سفارش های لغو شده</span></a>
+                                <span class="ps-3 fw-600">(0)</span>
+                            </div>
+                        </div>
+                        <div class="dash-section row mt-3">
+                            <p class="fw-600 fs-7 pb-3">علاقه مندی ها </p>
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-xl-4 col-lg-6 col-md-10 mb-lg-3 hotel-md">
+                                    <div class="card-hotel rounded-4">
+                                        <div class="hotel-header">
+                                            <a href="#">
+                                                <img src="/asset/img/Hotel/Almas.jpg" alt="hotel-image" />
+                                            </a>
+                                        </div>
+                                        <div class="body px-4 py-3">
+                                            <div class="d-inline ">
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                            </div>
+                                            <p class="pt-3 hotel-title">
+                                                <a class="fs-5 fw-600 p-0">
+                                                    هتل بین المللی گلستان
+                                                </a>
+                                            </p>
+                                            <p class="text-gray">گلستان ، گرگان</p>
+                                            <hr />
+                                            <div class="col-12 d-flex align-items-start">
+                                                <div class="col-4">
+                                                    <button class="btn btn-hotel btn-outline-info fw-600">
+                                                        5 / 5
+                                                    </button>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="fw-600">بسیار عالی</p>
+                                                </div>
+                                                <div class="col-3 text-gray">
+                                                    <p>(5 نظر)</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex align-items-start">
+                                                <div class="col-4">قیمت : شروع</div>
+                                                <div class="col-7">
+                                                    <p class="fw-600">600،000 ریال</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-10 mb-lg-3 hotel-md">
+                                    <div class="card-hotel rounded-4">
+                                        <div class="hotel-header">
+                                            <a href="#">
+                                                <img src="/asset/img/Hotel/ghasr-talaee-mashhad.jpg" alt="hotel-image" />
+                                            </a>
+                                        </div>
+                                        <div class="body px-4 py-3">
+                                            <div class="d-inline ">
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                            </div>
+                                            <p class="pt-3 hotel-title">
+                                                <a class=" fs-5 fw-600 p-0">
+                                                    هتل بین المللی گلستان
+                                                </a>
+                                            </p>
+                                            <p class="text-gray">گلستان ، گرگان</p>
+                                            <hr />
+                                            <div class="col-12 d-flex align-items-start">
+                                                <div class="col-4">
+                                                    <button class="btn btn-hotel btn-outline-info fw-600">
+                                                        5 / 5
+                                                    </button>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="fw-600">بسیار عالی</p>
+                                                </div>
+                                                <div class="col-3 text-gray">
+                                                    <p>(5 نظر)</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex align-items-start">
+                                                <div class="col-4">قیمت : شروع</div>
+                                                <div class="col-7">
+                                                    <p class="fw-600">600،000 ریال</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-10 mb-lg-3 hotel-md">
+                                    <div class="card-hotel rounded-4">
+                                        <div class="hotel-header">
+                                            <a href="#">
+                                                <img src="/asset/img/Hotel/tehran-ibis.webp" alt="hotel-image" />
+                                            </a>
+                                        </div>
+                                        <div class="body px-4 py-3">
+                                            <div class="d-inline ">
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                                <span class="bi bi-star-fill checked"></span>
+                                            </div>
+                                            <p class="pt-3 hotel-title">
+                                                <a class=" fs-5 fw-600 p-0">
+                                                    هتل بین المللی گلستان
+                                                </a>
+                                            </p>
+                                            <p class="text-gray">گلستان ، گرگان</p>
+                                            <hr />
+                                            <div class="col-12 d-flex align-items-start">
+                                                <div class="col-4">
+                                                    <button class="btn btn-hotel btn-outline-info fw-600">
+                                                        5 / 5
+                                                    </button>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="fw-600">بسیار عالی</p>
+                                                </div>
+                                                <div class="col-3 text-gray">
+                                                    <p>(5 نظر)</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex align-items-start">
+                                                <div class="col-4">قیمت : شروع</div>
+                                                <div class="col-7">
+                                                    <p class="fw-600">600،000 ریال</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

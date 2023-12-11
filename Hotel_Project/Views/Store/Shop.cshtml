@@ -1,0 +1,126 @@
+﻿@model List<ShowStoreHotels>
+@{
+    ViewData["Title"] = "Shop";
+}
+
+
+<main>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 pt-5">
+                    <div class="h-75 store-col">
+                        <div class="categoty position-relative overflow-hidden">
+                            <h5>دسته بندی ها</h5>
+                            <ul class="py-3">
+                                <li><a href="#">تور های مسافرت</a></li>
+                                <li><a href="#">تور های مسافرتی</a></li>
+                                <li><a href="#">تور های مسافرتی</a></li>
+                                <li><a href="#">تور های مسافرتی</a></li>
+                                <li><a href="#">تور های مسافرتی</a></li>
+                                <li><a href="#">تور های مسافرتی</a></li>
+                            </ul>
+                        </div>
+                        <div class="state-filter position-relative py-4">
+                            <form class="row g-3">
+                                <div class="col-md-5">
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="استان" />
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="شهر" />
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit"
+                                            class="btn btn-outline-success btn-sm">
+                                        جستوجو
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <select class="form-select select w-75"
+                                    aria-label="Default select example">
+                                <option value="">مرتب سازی بر اساس : پیش فرض</option>
+                                <option value="">مرتب سازی بر اساس : قیمت</option>
+                                <option value="">مرتب سازی بر اساس : محبوبیت</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-lg-6 d-flex justify-content-lg-end">
+                            <div class="col-md-12 col-lg-6 w-50 mini-select">
+                                <select class="form-select select"
+                                        aria-label="Default select example">
+                                    <option value="">نمایش : پیش فرض</option>
+                                    <option value="">9</option>
+                                    <option value="">12</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-5">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-12 col-sm-12 col-lg-6">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            @if (item.ImageName == null)
+                                            {
+                                                <a href="reservation.html" class="p-0">
+                                                    <img src="/asset/img/Hotel/Almas.jpg"
+                                                         class="img-fluid rounded-start h-100"
+                                                         alt="..." />
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="reservation.html" class="p-0">
+                                                    <img src="/asset/img/HotelImages/@item.ImageName"
+                                                         class="img-fluid rounded-start h-100"
+                                                         alt="..." />
+                                                </a>
+                                            }
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <div class="hotel-show">
+                                                    <a asp-controller="store" asp-action="ShowSingleHotel"
+                                                    asp-route-id="@item.Id" ><h5 class="card-title">@item.Title</h5></a>
+                                                    <p class="card-text pt-3">
+                                                        @item.Description
+                                                    </p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="d-inline col-6">
+                                                        <span class="bi bi-star-fill checked"></span>
+                                                        <span class="bi bi-star-fill checked"></span>
+                                                        <span class="bi bi-star-fill checked"></span>
+                                                        <span class="bi bi-star-fill checked"></span>
+                                                        <span class="bi bi-star checked"></span>
+                                                    </div>
+                                                    <div class="col-6 d-flex justify-content-end">
+                                                        <button class="btn btn-outline-info btn-score">
+                                                            4/5
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

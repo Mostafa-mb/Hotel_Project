@@ -1,0 +1,24 @@
+﻿@model InsertAndRemoveImageVm
+@{
+    ViewData["Title"] = "InsertImageToHotel";
+}
+
+<div class="container">
+    <h2 class="py-3"> افزودن تصویر به هتل</h2>
+    <form asp-action="InsertImageToHotel" method="post" enctype="multipart/form-data">
+        <input asp-for="Id" type="hidden" />
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="File" class="form-label"></label>
+                <input asp-for="File" class="form-control">
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success"> افزودن تصویر </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

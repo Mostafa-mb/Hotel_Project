@@ -1,0 +1,89 @@
+﻿@model ShowAllRoomsViewModel
+@{
+    ViewData["Title"] = "ShowAllRooms";
+}
+
+<div class="page-section">
+    <div class="container">
+        <div class="text-start">
+            <a asp-action="CreateRoom" asp-route-id="@Model.Id" class="btn btn-outline-primary ">افزودن اتاق</a>
+        </div>
+        @if (Model.showSingleRooms.Any())
+        {
+            @foreach (var item in Model.showSingleRooms)
+            {
+                <div class="row room-reserve">
+                    <div class="room-title row position-relative">
+                        <h5 class="ps-4 fw-600 col-6">@item.Title (@item.BedCount تخت)</h5>
+                        <span class="pe-5 col-6 text-end text-secondary">
+                            <i class="bi bi-person-check-fill fs-5 px-2"></i>
+                            <span class="fw-600">@item.Capacity نفر </span>
+                        </span>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="row col-lg-9 ps-5">
+                            <div class="col-lg-4 col-md-4  room-img overflow-hidden">
+                                <img src="/asset/img/RoomHotel/@item.ImageName" alt="" />
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="row">
+                                    <div class="col-12 ">
+                                        <div class="pt-1 pb-3">
+                                            <div class="col row d-inline">
+                                                <span class="fw-600 col-2">همراه با :</span>
+                                                @if (item.AdvantagesRoom.Any())
+                                                {
+                                                    @foreach (var advantage in item.AdvantagesRoom)
+                                                    {
+                                                        <span class="fw-600 ">@advantage.Name  </span>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <span class="fw-600 ">ویژگی در حال حاضر وجود ندارد  </span>
+                                                }
+
+                                                <a asp-controller="Product" asp-action="ShowAdvantagesRoom" 
+                                                asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm col-3">مدیریت ویژگی</a>
+                                            </div>
+                                        </div>
+                                        <div class="pt-1 pb-3">
+                                            <div class="col row ">
+                                                <div class="col">
+                                                    <span class="fw-600"> آماده رزرو از تاریخ :</span>
+                                                    <span class="fw-600"> @item.LastReserveTime </span>
+                                                </div>
+                                                <div class="fw-600 fs-6 col-md-12 col-lg-8 col-xl-7 room-price ">
+                                                    <span class=" w-100 "> قیمت برای هر شب : </span><span class="ps-3 fw-700 price-text "> @item.RoomPrice.ToString("##,###")  ریال</span>
+                                                </div>
+                                                <div class="fw-600 fs-6 col-md-12 col-lg-8 col-xl-7 mt-3">
+                                                    <a asp-action="ShowAllReserveDates" asp-route-id="@item.Id" class="btn btn-outline-success ">افزودن تاریخ رزرو</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-lg-end pe-5 reserve-btn">
+                            <a asp-action="EditHotelRoom" asp-route-id="@item.Id" class="btn btn-warning rounded-5 mt-3 col-6">
+                                ویرایش
+                            </a>
+                            <a asp-action="RemoveHotelRoom" asp-route-id="@item.Id" class="btn btn-danger rounded-5 mt-3 col-6">
+                                حذف
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="p-5">
+                <h4> در حال حاضر اتاقی برای هتل وجود ندارد </h4>
+            </div>
+        }
+
+    </div>
+</div>

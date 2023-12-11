@@ -1,0 +1,35 @@
+﻿
+
+@model UpdateReserveDateVm
+@{
+    ViewData["Title"] = "DeleteReserveDate";
+}
+
+<div class="container">
+    <h2 class="py-3"> ویرایش تاریخ</h2>
+    <form asp-action="DeleteReserveDate" method="post">
+        <input asp-for="Id" type="hidden" />
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="ReserveTime" class="form-label"></label>
+                <input disabled="disabled" asp-for="ReserveTime" class="form-control text-start">
+                <span asp-validation-for="ReserveTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Price" class="form-label"></label>
+                <input disabled="disabled" asp-for="Price" class="form-control text-start">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Count" class="form-label"></label>
+                <input disabled="disabled" asp-for="Count" class="form-control text-start">
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-danger"> حذف </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

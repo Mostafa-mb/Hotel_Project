@@ -1,0 +1,32 @@
+﻿
+@model InsertReserveDateVm
+@{
+    ViewData["Title"] = "InsertReserveDateToRoom";
+}
+
+<h2 class="py-3">افزودن تاریخ</h2>
+<div class="row">
+    <div class="col-12">
+        <div class="mt-5 mb-3">
+            <form asp-action="InsertReserveDateToRoom" method="post">
+                <input type="hidden" asp-for="roomId" />
+                <div class="row container">
+                    @foreach (var item in Model.reserveDates)
+                    {
+                        <div class="form-check col-2">
+                            <input name="reserveDates" class="form-check-input" type="checkbox" value="@item">
+                            <label class="form-check-label">
+                                @PersianDate.ToShamsiDate(item)
+                            </label>
+                        </div>
+                    }
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-success"> ثبت تاریخ </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

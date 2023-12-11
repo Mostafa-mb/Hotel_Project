@@ -1,0 +1,35 @@
+﻿
+@model FisrtBaner
+@{
+    ViewData["Title"] = "CreateBaner";
+}
+
+
+<div class="container">
+    <h2 class="py-3"> ایجاد بنر</h2>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <form asp-action="CreateBaner" method="post">
+        <div class="col-12 w-50">
+            <div class="mb-3">
+                <label asp-for="ImageName" class="form-label"></label>
+                <input asp-for="ImageName" class="form-control">
+                
+            </div>
+            <div class="mb-3">
+                <label asp-for="BanerTitle" class="form-label"></label>
+                <input asp-for="BanerTitle" class="form-control text-start" placeholder="مثال : تخفیف بگیرید">
+                <span asp-validation-for="BanerTitle" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BanerButton" class="form-label"></label>
+                <input asp-for="BanerButton" class="form-control text-start" placeholder="مثال : خرید کنید">
+                <span asp-validation-for="BanerButton" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success"> ساخت بنر </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

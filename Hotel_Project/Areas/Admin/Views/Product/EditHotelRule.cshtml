@@ -1,0 +1,25 @@
+﻿@model CrudForHotelRuleVm
+@{
+    ViewData["Title"] = "EditHotelRule";
+}
+
+
+<div class="container">
+    <h2 class="py-3"> ویرایش قانون به هتل</h2>
+    <form asp-action="EditHotelRule" method="post">
+        <input asp-for="Id" type="hidden" />
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea rows="4" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-warning"> ویرایش قانون </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

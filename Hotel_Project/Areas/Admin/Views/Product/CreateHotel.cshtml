@@ -1,0 +1,74 @@
+﻿
+@model CreateHotelViewModel
+
+@{
+    ViewData["Title"] = "CreateHotel";
+}
+
+<div class="container">
+    <h2 class="py-3"> ایجاد هتل</h2>
+    <div asp-validation-summary="ModelOnly" class="text-bg-danger"></div>
+    <form asp-action="CreateHotel" method="post">
+        <div class="row ">
+            <div class="mb-3 col-6">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="RoomCount" class="form-label"></label>
+                <input asp-for="RoomCount" class="form-control text-start">
+                <span asp-validation-for="RoomCount" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="StageCount" class="form-label"></label>
+                <input asp-for="StageCount" class="form-control text-start">
+                <span asp-validation-for="StageCount" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="EntryTime" class="form-label"></label>
+                <input asp-for="EntryTime" class="form-control text-start">
+                <span asp-validation-for="EntryTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="ExitTime" class="form-label"></label>
+                <input asp-for="ExitTime" class="form-control text-start">
+                <span asp-validation-for="ExitTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-12">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea rows="4" asp-for="Description" class="form-control text-start"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="col-12 mt-3">
+                <p class="fs-3">آدرس هتل</p>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="State" class="form-label"></label>
+                <input asp-for="State" class="form-control text-start">
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control text-start">
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="PostalCode" class="form-label"></label>
+                <input asp-for="PostalCode" class="form-control text-start">
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-12">
+                <label asp-for="Address" class="form-label"></label>
+                <textarea rows="4" asp-for="Address" class="form-control text-start"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success"> ساخت هتل </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
